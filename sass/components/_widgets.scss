@@ -1,0 +1,38 @@
+@use '../utils/variables';
+
+.widgets {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  gap: variables.get-space('flex-gap');
+
+  &__background {
+    font-size: 14px;
+    text-align: justify;
+    box-sizing: border-box;
+  }
+
+  &__container {
+    padding: 25px 0;
+    margin-bottom: 30px;
+    background-color: variables.get-color('portfolio-button');
+    border-radius: variables.get-space('button-radius');
+    text-align: center;
+  }
+
+  &__title {
+    color: black;
+    font-size: 14px;
+    line-height: 1.17;
+  }
+
+  &__text {
+    line-height: 1.71;
+  }
+}
+
+
+
+

@@ -1,0 +1,82 @@
+@use '../utils/variables';
+
+.icon {
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+
+.customers__icon {
+  color: variables.get-color(grey);
+  height: 60px;
+  width: 106px;
+}
+
+.modal__icons-name {
+  fill: variables.get-color(black);
+  height: 18px;
+  width: 18px;
+}
+
+.modal__icons-phone {
+  fill: variables.get-color(black);
+  height: 18px;
+  width: 18px;
+}
+
+.modal__icons-mail {
+  fill: variables.get-color(black);
+  left: 18px;
+  top: 18px;
+}
+
+.modal__icons-checkbox {
+  height: 15px;
+  width: 16px;
+  visibility: hidden;
+}
+
+
+.modal__icons-name,
+.modal__icons-phone,
+.modal__icons-mail {
+  width: 18px;
+  height: 18px;
+}
+
+.contact__icon-mail {
+  width: 1.3330078125em;
+}
+
+.contact__icon-tel {
+  width: 0.625em;
+}
+
+.contact__icon-tel,
+.contact__icon-mail {
+  margin-right: 10px;
+  height: 1rem;
+}
+
+.newsletter__icons-close {
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+}
+
+.newsletter__icons-send {
+  fill: variables.get-color('white-first');
+  height: 24px;
+  width: 24px;
+}
+
+.widgets__icon-antena,
+.widgets__icon-clock,
+.widgets__icon-diagram,
+.widgets__icon-astronaut {
+  height: 70px;
+  width: 70px;
+}

@@ -1,0 +1,38 @@
+@use '../utils/variables';
+
+.hero__background {
+  color: variables.get-color('white-first');
+  background: url("../images/Img17.jpg") no-repeat 50% 50% / cover;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.hero__gradient {
+  background-color: variables.get-background-color('black');
+  padding: 200px 0;
+}
+
+.hero__title {
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.36;
+  text-align: center;
+  text-transform: uppercase;
+  width: 696px;
+  margin: 0 auto 30px auto;
+  letter-spacing: 0.06em;
+}
+
+.hero__button {
+  color: variables.get-color('white-first');
+  background-color: variables.get-color('blue');
+  font-size: 16px;
+  line-height: 1.875;
+  padding: 10px 42px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: variables.get-space(button-radius);
+}

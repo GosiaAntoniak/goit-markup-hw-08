@@ -1,0 +1,59 @@
+@use '../utils/variables';
+
+.newsletter {
+  margin-top: 20px;
+  height: 50px;
+  width: 358px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background-color: variables.get-background-color('grey-solid');
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+  padding-left: 16px;
+  color: variables.get-color('white-first');
+
+  &__button {
+    color: variables.get-color('white-first');
+    height: 50px;
+    width: 200px;
+    border: none;
+    border-radius: 4px;
+    background-color: variables.get-color('blue');
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12px;
+    transition-duration: 250ms;
+    transition-timing-function: variables.get-animation('cubic-bezier');
+    transition-property: transform;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.newsletter__title > h4 {
+  text-transform: uppercase;
+  color: variables.get-color('white-first');
+  margin: 0;
+}
+
+input::placeholder {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
+.newsletter__button-text {
+  padding: 10px 24px 10px 0;
+}

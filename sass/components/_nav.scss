@@ -1,0 +1,122 @@
+@use '../utils/variables';
+
+.nav {
+  li {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  font-size: 14px;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: variables.get-space('flex-gap');
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  position: relative;
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+  }
+
+  &__separator {
+    flex-grow: 1;
+  }
+
+  &__logo {
+    font-size: 26px;
+    font-family: "Raleway", sans-serif;
+    text-decoration: none;
+    color: variables.get-color('blue');
+    transition: color 250ms variables.get-animation('cubic-bezier');
+  }
+
+  &__item {
+    text-decoration: none;
+    font-size: 14px;
+
+    &:after {
+      display: block;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: variables.get-color('blue');
+      border-radius: 2px;
+      bottom: 0;
+      text-align: center;
+      transition: opacity 250ms variables.get-animation('cubic-bezier');
+      opacity: 0;
+    }
+  }
+}
+
+
+.nav__logo,
+.nav__item {
+  color: variables.get-color('black');
+}
+
+.nav__item:hover:after,
+.nav__item-active::after {
+  opacity: 1;
+}
+
+.nav__item,
+.nav {
+  font-weight: 500;
+  transition: color 250ms variables.get-animation('cubic-bezier');
+}
+
+.nav__logo:hover,
+.nav_logo:focus,
+.nav__item:hover,
+.nav__item:focus,
+.contact__item:hover,
+.contact__item:focus {
+  color: variables.get-color('blue');
+}
+
+.contact__item:hover path,
+.contact__item:focus path {
+  fill: variables.get-color('blue');
+}
+
+.contact__item path {
+  fill: variables.get-color('grey');
+}
+
+.logo {
+  color: variables.get-color('blue');
+}
+
+.contact {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: variables.get-space('flex-gap');
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    color: variables.get-color('grey');
+    text-decoration: none;
+    font-size: 14px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transition: color 250ms variables.get-animation('cubic-bezier');
+  }
+}
+
+

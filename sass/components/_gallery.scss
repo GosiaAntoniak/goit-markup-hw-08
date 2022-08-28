@@ -1,0 +1,35 @@
+@use '../utils/variables';
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+
+  &__thumb {
+    position: relative;
+    margin: 0;
+    height: 294px;
+
+    figcaption {
+      color: variables.get-color('white-first');
+      background-color: variables.get-background-color('grey');
+      position: absolute;
+      bottom: 0;
+      text-transform: uppercase;
+      width: 100%;
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    padding: 27px 0;
+    margin: 0;
+  }
+}
+
+
+

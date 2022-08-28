@@ -1,0 +1,41 @@
+@use '../utils/variables';
+
+.portfolio__button {
+  font-size: 16px;
+  line-height: 1.625;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  border: 0;
+  outline: 0;
+  margin-top: 100px;
+  margin-bottom: 56px;
+  padding: 0;
+
+}
+
+.portfolio__menu {
+  color: variables.get-color('black');
+  background-color: variables.get-color('portfolio-button');
+  font-size: 16px;
+  line-height: 1.625;
+  font-weight: 500;
+  outline: none;
+  border: 0;
+  border-radius: variables.get-space('button-radius');
+  padding: 6px 22px;
+  cursor: pointer;
+  transition: color 250ms variables.get-animation('cubic-bezier'), background-color 250ms variables.get-animation('cubic-bezier'), box-shadow 250ms variables.get-animation('cubic-bezier');
+
+  &:hover,
+  &:focus {
+    color: variables.get-color('portfolio-button');
+    background-color: variables.get-color('blue');
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+}
+
+
