@@ -93,3 +93,27 @@
   cursor: pointer;
   position: relative;
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .projects {
+    display: block;
+  }
+  .projects__text {
+    width: 450px;
+    margin-top: 30px;
+  }
+  .projects__img {
+    width: 450px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .projects {
+    justify-content: flex-start;
+  }
+  .projects__text {
+    width: 354px;
+  }
+  .projects__img {
+    width: 354px;
+  }
+}

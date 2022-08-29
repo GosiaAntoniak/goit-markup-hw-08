@@ -1,0 +1,119 @@
+@use '../utils/variables';
+
+.mobile__menu-container {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  padding-left: 40px;
+  z-index: 999;
+  background: variables.get-color('white-first');
+  transform: translateX(0);
+  visibility: hidden;
+  transition-property: transform, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.mobile__menu-container .is-open {
+  transform: translateX(100%);
+}
+.is-open {
+  visibility: visible;
+}
+.mobile__menu-close {
+  background: variables.get-color('white-first');
+}
+.mobile__menu-open {
+  background: #000000;
+  height: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.menu__button-icon {
+  fill: #000000;
+  border: none;
+  height: 18.666669845581055px;
+  width: 18.666669845581055px;
+  margin-top: 21px;
+  margin-left: 396px;
+  margin-right: 25.33px;
+  &:hover,
+  &:focus {
+    fill: variables.get-color('blue');
+  }
+}
+.mobile__menu-item {
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.175;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: variables.get-color('black');
+  &:hover,
+  &:focus {
+    color: variables.get-color('blue');
+  }
+}
+.mobile__menu-item li{
+  padding-top: 18px;
+}
+
+.mobile__menu-item li {
+  padding-top: 36px;
+}
+
+.menu__contact {
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+
+  &-tel {
+    font-size: 34px;
+    line-height: 1.176;
+    color: variables.get-color('blue');
+    padding-top: 302px;
+  }
+  &-mail {
+    font-size: 24px;
+    line-height: 1.167;
+    color: variables.get-color('grey');
+    padding-top: 32px;
+    padding-bottom: 64px;
+  }
+}
+
+.menu__socials {
+  display: flex;
+  flex-direction: row;
+}
+.menu__socials {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.222;
+  letter-spacing: 0.02em;
+  color: variables.get-color('blue');
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #21212133;
+}
+
+.menu__socials-instagram {
+    padding-left: 0;
+  }
+.menu__socials-linkedin {
+    border-right: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .menu__open-btn {
+    display: none;
+  }
+}
