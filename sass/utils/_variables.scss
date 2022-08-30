@@ -14,9 +14,12 @@ $color: (
 
 $background-color: (
         'white': rgba(255, 255, 255, 0.1),
+        'grey-border-bottom': rgba(236, 236, 236, 1),
         'grey': rgba(47, 48, 58, 0.8),
         'grey-solid': rgb(47, 48, 58),
+        'grey-dim':  rgba(33, 33, 33, 0.2),
         'grey-all': rgba(0, 0, 0, 0.2),
+        'grey-border': rgba(0, 0, 0, 0.1),
         'blue': rgba(33, 150, 243, 0.9),
         'black': rgba(47, 48, 58, 0.4),
 );

@@ -30,14 +30,3 @@
     margin: 0;
   }
 }
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .gallery {
-    display: none;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .gallery {
-    display: none;
-  }
-}

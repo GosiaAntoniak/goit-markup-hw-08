@@ -1,4 +1,5 @@
 @use '../utils/variables';
+@use '../utils/mixins';
 
 .projects {
   box-sizing: border-box;
@@ -6,6 +7,16 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 114px;
+
+  @include mixins.breakpoint-mobile {
+    margin-bottom: 60px;
+    padding: 0 15px;
+  }
+
+  @include mixins.breakpoint-tablet-por {
+    margin-bottom: 60px;
+    padding: 0 15px;
+  }
 
   &__title {
     font-weight: 700;
@@ -34,8 +45,8 @@
   z-index: 2;
   margin: 0;
   padding: 49px 45px 49px 24px;
-  width: 370px;
-  height: 294px;
+  width: 100%;
+  height: 100%;
   transform: translateY(100%);
   transition: transform 250ms variables.get-animation('cubic-bezier');
 }
@@ -53,10 +64,14 @@
 .projects__list {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   gap: variables.get-space('flex-gap');
   padding: 0;
+
+  @include mixins.breakpoint-mobile {
+    gap: 30px;
+  }
 
   figure {
     position: relative;
@@ -85,6 +100,15 @@
 
   img {
     z-index: 1;
+    @include mixins.breakpoint-mobile {
+      width: 100%;
+      height: auto;
+    }
+
+    @include mixins.breakpoint-tablet-por {
+      width: 100%;
+      height: auto;
+    }
   }
 
 }
@@ -92,28 +116,13 @@
 .projects__list li {
   cursor: pointer;
   position: relative;
-}
 
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .projects {
-    display: block;
+  @include mixins.breakpoint-mobile {
+    width: 100%;
   }
-  .projects__text {
-    width: 450px;
-    margin-top: 30px;
-  }
-  .projects__img {
-    width: 450px;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .projects {
-    justify-content: flex-start;
-  }
-  .projects__text {
-    width: 354px;
-  }
-  .projects__img {
-    width: 354px;
+
+  @include mixins.breakpoint-tablet-por {
+    width: 100%;
+    flex-basis: 48%;
   }
 }

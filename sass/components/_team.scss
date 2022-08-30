@@ -1,13 +1,88 @@
 @use '../utils/variables';
+@use '../utils/mixins';
 
 
 .team {
-
   display: flex;
   justify-content: space-between;
+  flex-flow: row nowrap;
   align-items: center;
   list-style: none;
   padding: 0;
+  gap: 30px;
+
+  @include mixins.breakpoint-mobile {
+    flex-flow: column nowrap;
+    padding: 0 15px;
+  }
+
+  @include mixins.breakpoint-tablet-por {
+    flex-flow: row wrap;
+    padding: 0 15px;
+  }
+
+  > li {
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 4px 4px;
+    width: 100%;
+    flex-basis: 25%;
+
+    @include mixins.breakpoint-mobile {
+      flex-basis: 100%;
+    }
+
+    @include mixins.breakpoint-tablet-por {
+      width: 100%;
+      flex-basis: 48%;
+    }
+
+  }
+
+  &__socials-wrapper {
+    margin-top: 16px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__socials {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: variables.get-color('social-icon');
+
+    > li:hover,
+    > li:focus {
+      background-color: variables.get-color('blue');
+    }
+
+    li {
+      border-radius: 50%;
+      text-align: center;
+      width: 44px;
+      height: 44px;
+      padding: 12px;
+      cursor: pointer;
+      transition: color 250ms variables.get-animation('cubic-bezier'), background-color 250ms variables.get-animation('cubic-bezier');
+    }
+
+    > li {
+      box-sizing: border-box;
+      color: variables.get-color('social-icon');
+
+      &:hover,
+      &:focus {
+        color: variables.get-color('white-first');
+      }
+    }
+  }
 
   &__background {
     background-color: variables.get-color('portfolio-button');
@@ -20,140 +95,28 @@
     figcaption {
       padding: 30px 0;
     }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
-}
 
-.team > li {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
-  0 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 0 0 4px 4px;
-}
-
-.team__socials-wrapper {
-  margin-top: 16px;
-}
-
-.team__socials {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: variables.get-color('social-icon');
-
-  li {
-    border-radius: 50%;
+  &__name-title {
+    color: variables.get-color('black');
+    font-weight: 500;
     text-align: center;
-    width: 44px;
-    height: 44px;
-    padding: 12px;
-    cursor: pointer;
-    transition: color 250ms variables.get-animation('cubic-bezier'), background-color 250ms variables.get-animation('cubic-bezier');
+    margin-bottom: 10px;
   }
-}
 
-.team__socials > li:hover,
-.team__socials > li:focus {
-  background-color: variables.get-color('blue');
-}
+  &__position {
+    text-align: center;
+  }
 
-.team__socials > li,
-.team__socials > li {
-  box-sizing: border-box;
-  color: variables.get-color('social-icon');
-}
-
-.team__socials > li:hover,
-.team__socials > li:focus {
-  color: variables.get-color('white-first');
-}
-
-.team__socials-wrapper svg {
-  width: 20px;
-  height: 20px;
-}
-
-.team__name-title {
-  color: variables.get-color('black');
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.team__position {
-  text-align: center;
-}
-
-.team__name-title,
-.team__position {
-  line-height: 1.17;
-  margin: 0;
-  font-size: 16px;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .section {
-    padding-bottom: 60px;
-    padding-top: 60px;
-  }
-  .team {
-    display: block;
-  }
-  .team__figure {
-    width: 450px;
-    margin-top: 30px;
-  }
-  .team__name-title {
-    padding-bottom: 0px;
-  }
-  .team__socials {
-    padding-bottom: 24px;
-    justify-content: center;
-    width: 450px;
-  }
-  .team__socials-wrapper {
-    width: 450px;
-    height: 460px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .section {
-    padding-bottom: 60px;
-    padding-top: 60px;
-  }
-  .team {
-    flex-wrap: wrap;
-  }
-  .team__figure {
-    width: 354px;
-  }
-  .team__name-title {
-    padding-bottom: 30px;
-    padding-top: 0px;
-  }
-  .team__socials {
-    padding-bottom: 24px;
-    justify-content: center;
-    width: 354px;
-  }
-  .team__socials-wrapper {
-    width: 354px;
-    height: 374px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .team__figure {
-    width: 270px;
-  }
-  .team__name-title {
-    font-size: 36px;
+  &__name-title,
+  &__position {
     line-height: 1.17;
-  }
-  .team__socials {
-    justify-content: center;
-    width: 270px;
+    margin: 0;
+    font-size: 16px;
   }
 }

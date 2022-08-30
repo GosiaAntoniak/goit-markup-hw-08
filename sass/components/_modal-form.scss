@@ -1,4 +1,5 @@
 @use '../utils/variables';
+@use '../utils/mixins';
 
 .backdrop {
   background-color: variables.get-background-color('grey');
@@ -43,6 +44,11 @@
   transform: scale(1);
   transition-duration: 250ms;
   transition-timing-function: linear;
+
+  @include mixins.breakpoint-mobile {
+    width: calc(100% - 30px);
+    padding: 0 40px;
+  }
 }
 
 .modal__button-close {
@@ -82,6 +88,10 @@
   position: relative;
   padding-left: 42px;
   box-sizing: border-box;
+
+  @include mixins.breakpoint-mobile {
+    width: 100%;
+  }
 }
 
 .modal__element-text {
@@ -105,6 +115,11 @@
   position: relative;
   width: 448px;
   margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  @include mixins.breakpoint-mobile {
+    width: 100%;
+  }
 }
 
 .modal__icons-input {
@@ -124,6 +139,9 @@ textarea {
   resize: none;
   padding-top: 12px;
   padding-left: 16px;
+  @include mixins.breakpoint-mobile {
+    width: 100%;
+  }
 }
 
 textarea::placeholder {
@@ -161,6 +179,10 @@ textarea::placeholder {
   left: 63px;
   cursor: pointer;
   border-radius: 2px;
+
+  @include mixins.breakpoint-mobile {
+    left: 0;
+  }
 }
 
 .modal__checkbox input:checked ~ .checkmark .modal__icons-checkbox {
@@ -188,6 +210,11 @@ textarea::placeholder {
   margin-top: 25px;
   margin-left: 88px;
   cursor: default;
+
+  @include mixins.breakpoint-mobile {
+    margin-top: 20px;
+    margin-left: 25px;
+  }
 }
 
 .modal__checkbox-link {
@@ -196,15 +223,44 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-.modal__element-box:focus + .modal__icons-input,
-.modal__element-box:active + .modal__icons-input,
+.modal__element-text {
+  order: 1;
+}
+
+.modal__element-box,
+.modal__form-textarea {
+  order: 2;
+}
+
+.modal__icons-input {
+  order: 3;
+}
+
+.modal__element-box:focus ~ .modal__icons-input,
+.modal__element-box:active ~ .modal__icons-input,
 .modal__form-textarea:focus,
 .modal__form-textarea:active,
 .modal__element-box:active,
 .modal__element-box:focus {
-  fill: variables.get-color(blue);
-  border-color: variables.get-color(blue);
+  fill: variables.get-color('blue');
+  border-color: variables.get-color('blue');
   outline: none;
+  transition-duration: 250ms;
+  transition-timing-function: variables.get-animation('cubic-bezier');
+  transition-property: outline-color, fill;
+}
+
+.modal__element-box:focus + .modal__element-text,
+.modal__element-box:active + .modal__element-text {
+  color: variables.get-color('blue');
+  transition-duration: 250ms;
+  transition-timing-function: variables.get-animation('cubic-bezier');
+  transition-property: outline-color, fill;
+}
+
+.modal__form-textarea:active + .modal__element-text,
+.modal__form-textarea:focus + .modal__element-text {
+  color: variables.get-color('blue');
   transition-duration: 250ms;
   transition-timing-function: variables.get-animation('cubic-bezier');
   transition-property: outline-color, fill;
@@ -245,58 +301,16 @@ textarea::placeholder {
   background-color: variables.get-color('white-first');
   position: absolute;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   margin: 8px;
   padding: 0;
   height: 30px;
   width: 30px;
   cursor: pointer;
   outline: 0;
-  border: none;
   top: 14px;
   right: 6px;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .modal__form-title {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-}
-@media screen and (min-width: 1200px) {
-  .modal__element-box {
-    width: 448px;
-  }
-  .textarea {
-    width: 448px;
-  }
-  .modal__icons-input {
-    fill: variables.get-color('black');
-  }
-.modal__icons-name {
-      position: absolute;
-      top: 108px;
-      left: 60px;
-    }
-
- .modal__icons-phone {
-      position: absolute;
-      top: 175px;
-      left: 60px;
-    }
-
-.modal_icons-mail {
-      position: absolute;
-      top: 243px;
-      left: 60px;
-    }
-  textarea::placeholder {
-    font-size: 12px;
-  }
-  .modal__element-text {
-    font-size: 14px;
-  }
+  border-radius: 50%;
+  border: 1px solid variables.get-background-color('grey-border');
 }

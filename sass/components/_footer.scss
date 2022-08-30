@@ -1,4 +1,5 @@
 @use '../utils/variables';
+@use '../utils/mixins';
 
 .footer {
   background-color: variables.get-background-color('grey-solid');
@@ -10,8 +11,24 @@
   text-decoration: none;
   width: 100%;
 
+  @include mixins.breakpoint-mobile {
+    padding: 60px 15px;
+  }
+
+  @include mixins.breakpoint-tablet-por {
+    padding: 60px 15px;
+  }
+
   &__container {
     margin-bottom: 20px;
+
+    @include mixins.breakpoint-mobile {
+      text-align: center;
+    }
+
+    @include mixins.breakpoint-tablet-por {
+      text-align: center;
+    }
   }
 
   &__logo {
@@ -30,6 +47,14 @@
     gap: variables.get-space('flex-gap');
     display: flex;
     flex-direction: column;
+
+    @include mixins.breakpoint-mobile {
+      text-align: center;
+    }
+
+    @include mixins.breakpoint-tablet-por {
+      text-align: center;
+    }
 
     span {
       letter-spacing: 0.03em;
@@ -52,6 +77,17 @@
   &:hover,
   &:focus {
     color: variables.get-color('blue');
+  }
+
+  @include mixins.breakpoint-mobile {
+    flex-flow: column nowrap;
+    gap: 60px;
+  }
+
+  @include mixins.breakpoint-tablet-por {
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 60px;
   }
 }
 
@@ -98,81 +134,5 @@
   svg {
     width: 20px;
     height: 20px;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .page__footer {
-    display: block;
-  }
-  .footer__socialmedia span {
-    padding-top: 60px;
-  }
-  .footer__socialmedia-wrapper {
-    justify-content: center;
-  }
-  .footer__logo {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .footer__socialmedia span {
-    padding-top: 8px;
-  }
-  .page__footer-tablet {
-    display: flex;
-    flex-direction: column;
-  }
-  .section__tablet {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 60px;
-  }
-  .footer__address {
-    padding-left: 61px;
-  }
-  .footer__socialmedia-wrapper {
-    padding-left: 144px;
-    padding-right: 74px;
-  }
-  .footer__logo {
-    padding-left: 100px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .page__footer {
-    padding-bottom: 60px;
-  }
-  .footer__socialmedia {
-    text-align: left;
-    padding-top: 9px;
-  }
-  .footer__address {
-    text-align: left;
-  }
-  .page-footer__title {
-    text-align: left;
-    padding-top: 12px;
-  }
-  .footer__socialmedia-wrapper {
-    padding-left: 70px;
-  }
-  .page__footer-tablet {
-    display: flex;
-    flex-direction: row;
-  }
-  .section__tablet {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 0;
-  }
-  .footer__logo {
-    font-size: 26px;
-    line-height: 1.19;
   }
 }
